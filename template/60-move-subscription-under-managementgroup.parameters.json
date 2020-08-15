@@ -4,15 +4,15 @@
     "parameters": {
       "input": {
         "value": {
-          "Name": "Tailspin",
-          "DisplayName": "Tailspin",
+          "Name": "mySMBtech",
+          "DisplayName": "mySMBtech",
           "ParentId": "/providers/Microsoft.Management/managementGroups/3fc1081d-6105-4e19-b60c-1ec1252cf560",
           "Type": "/providers/Microsoft.Management/managementGroups",
           "Children": [
             {
-              "Id": "/providers/Microsoft.Management/managementGroups/Tailspin-bu1",
-              "Name": "Tailspin-bu1",
-              "DisplayName": "Tailspin-bu1",
+              "Id": "/providers/Microsoft.Management/managementGroups/mySMBtech-bu1",
+              "Name": "mySMBtech-bu1",
+              "DisplayName": "mySMBtech-bu1",
               "Type": "/providers/Microsoft.Management/managementGroups",
             },
             {
@@ -105,8 +105,8 @@
                 "ResourceType": "Microsoft.Authorization/policyAssignments",
                 "Properties": {
                   "displayName": "ADINE-KeyVault",
-                  "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/Tailspin/providers/Microsoft.Authorization/policyDefinitions/DINE-KeyVault",
-                  "scope": "/providers/Microsoft.Management/managementGroups/Tailspin",
+                  "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/mySMBtech/providers/Microsoft.Authorization/policyDefinitions/DINE-KeyVault",
+                  "scope": "/providers/Microsoft.Management/managementGroups/mySMBtech",
                   "notScopes": [],
                   "parameters": {}
                 }

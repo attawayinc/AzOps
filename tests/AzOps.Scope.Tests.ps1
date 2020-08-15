@@ -97,11 +97,11 @@ Describe "AzOpsScope (Unit Test)" -Tag "unit", "scope" {
         # $policyAssignmentId = (Get-AzPolicyAssignment -WarningAction SilentlyContinue | Get-Random).Id
         # $AzOpsScopeTest.Add("policyAssignment", (New-AzOpsScope -scope $policyAssignmentId))
 
-        $policyDefinitionId = (Get-AzPolicyDefinition -WarningAction SilentlyContinue -Custom -ManagementGroupName Contoso | Get-Random).ResourceId
-        # $policyDefinitionId = '/providers/Microsoft.Management/managementGroups/Tailspin/providers/Microsoft.Authorization/policyDefinitions/DINE-KeyVault'
+        $policyDefinitionId = (Get-AzPolicyDefinition -WarningAction SilentlyContinue -Custom -ManagementGroupName mySMBtech | Get-Random).ResourceId
+        # $policyDefinitionId = '/providers/Microsoft.Management/managementGroups/mySMBtech/providers/Microsoft.Authorization/policyDefinitions/DINE-KeyVault'
         $AzOpsScopeTest.Add("policyDefinition", (New-AzOpsScope -scope $policyDefinitionId))
 
-        $policySetDefinitionId = (Get-AzPolicySetDefinition -Custom -WarningAction SilentlyContinue -ManagementGroupName Contoso | Get-Random).ResourceId
+        $policySetDefinitionId = (Get-AzPolicySetDefinition -Custom -WarningAction SilentlyContinue -ManagementGroupName mySMBtech | Get-Random).ResourceId
         $AzOpsScopeTest.Add("policySetDefinition", (New-AzOpsScope -scope $policySetDefinitionId))
     }
 

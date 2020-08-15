@@ -12,7 +12,7 @@
         ]
 .EXAMPLE
     # Invoke resource providers registration
-    Register-AzOpsResourceProvider -filename 'C:\Git\CET-NorthStar\azops\3fc1081d-6105-4e19-b60c-1ec1252cf560\contoso\platform\connectivity\resourceproviders.json'
+    Register-AzOpsResourceProvider -filename 'C:\Git\CET-NorthStar\azops\3fc1081d-6105-4e19-b60c-1ec1252cf560\mySMBtech\platform\connectivity\resourceproviders.json'
 .INPUTS
     Filename
     Scope

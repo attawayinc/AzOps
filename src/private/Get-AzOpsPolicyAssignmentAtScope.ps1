@@ -5,7 +5,7 @@
     This cmdlets discovers all custom policy assignments at the provided scope (Management Groups, subscriptions or resource groups), excluding inherited assignments.
 .EXAMPLE
     # Discover all custom policy assignments deployed at Management Group scope
-    Get-AzOpsPolicyAssignmentAtScope -scope (New-AzOpsScope -scope /providers/Microsoft.Management/managementGroups/contoso)
+    Get-AzOpsPolicyAssignmentAtScope -scope (New-AzOpsScope -scope /providers/Microsoft.Management/managementGroups/mySMBtech)
 .INPUTS
     AzOpsScope
 .OUTPUTS

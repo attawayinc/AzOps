@@ -5,7 +5,7 @@
     This cmdlets discovers all custom policy definitions at the provided scope (Management Groups, subscriptions or resource groups), excluding inherited definitions.
 .EXAMPLE
     # Discover all custom policy definitions deployed at Management Group scope
-    Get-AzOpsPolicyDefinitionAtScope -scope (New-AzOpsScope -scope /providers/Microsoft.Management/managementGroups/contoso)
+    Get-AzOpsPolicyDefinitionAtScope -scope (New-AzOpsScope -scope /providers/Microsoft.Management/managementGroups/mySMBtech)
 .INPUTS
     AzOpsScope
 .OUTPUTS

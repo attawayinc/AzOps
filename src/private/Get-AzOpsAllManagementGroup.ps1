@@ -5,12 +5,12 @@
     The cmdlet will recursively enumerates a management group and returns all children mgs.
     If the $global:AzOpsSupportPartialMgDiscovery has been used, it will add all MG's where discovery should initiate to the AzOpsPartialRoot variable.
 .EXAMPLE
-    Get-AzOpsAllManagementGroup -ManagementGroup Tailspin
-    Id                : /providers/Microsoft.Management/managementGroups/Tailspin
+    Get-AzOpsAllManagementGroup -ManagementGroup mySMBtech
+    Id                : /providers/Microsoft.Management/managementGroups/mySMBtech
     Type              : /providers/Microsoft.Management/managementGroups
-    Name              : Tailspin
+    Name              : mySMBtech
     TenantId          : d4c7591d-9b0c-49a4-9670-5f0349b227f1
-    DisplayName       : Tailspin
+    DisplayName       : mySMBtech
     UpdatedTime       : 0001-01-01 00:00:00
     UpdatedBy         :
     ParentId          : /providers/Microsoft.Management/managementGroups/d4c7591d-9b0c-49a4-9670-5f0349b227f1

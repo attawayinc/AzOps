@@ -12,7 +12,7 @@
         ]
 .EXAMPLE
     # Invoke provider features registration
-    Register-AzOpsProviderFeature -filename 'C:\Git\CET-NorthStar\azops\3fc1081d-6105-4e19-b60c-1ec1252cf560\contoso\platform\connectivity\providerfeatures.json'
+    Register-AzOpsProviderFeature -filename 'C:\Git\CET-NorthStar\azops\3fc1081d-6105-4e19-b60c-1ec1252cf560\mySMBtech\platform\connectivity\providerfeatures.json'
 .INPUTS
     Filename
     Scope

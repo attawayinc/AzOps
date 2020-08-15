@@ -21,27 +21,27 @@
     |-- azops
     |-- 43a8a113-b0e1-4b17-b6ab-68c8925bf817
        |-- .AzState
-       |-- Tailspin
+       |-- mySMBtech
            |-- .AzState
-           |-- Tailspin-decomissioned
+           |-- mySMBtech-decomissioned
            |   |-- .AzState
-           |-- Tailspin-Landing Zones
+           |-- mySMBtech-Landing Zones
            |   |-- .AzState
-           |   |-- Tailspin-corp
+           |   |-- mySMBtech-corp
            |   |   |-- .AzState
-           |   |-- Tailspin-online
+           |   |-- mySMBtech-online
            |   |   |-- .AzState
-           |   |-- Tailspin-sap
+           |   |-- mySMBtech-sap
            |       |-- .AzState
-           |-- Tailspin-platform
+           |-- mySMBtech-platform
            |   |-- .AzState
-           |   |-- Tailspin-connectivity
+           |   |-- mySMBtech-connectivity
            |   |   |-- .AzState
-           |   |-- Tailspin-identity
+           |   |-- mySMBtech-identity
            |   |   |-- .AzState
-           |   |-- Tailspin-management
+           |   |-- mySMBtech-management
            |       |-- .AzState
-           |-- Tailspin-sandboxes
+           |-- mySMBtech-sandboxes
                |-- .AzState
 #>
 

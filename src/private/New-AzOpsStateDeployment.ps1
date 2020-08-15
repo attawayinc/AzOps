@@ -27,16 +27,16 @@
             ]
 .EXAMPLE
     # Invoke ARM Template Deployment
-    New-AzOpsStateDeployment -filename 'C:\Git\CET-NorthStar\azops\3fc1081d-6105-4e19-b60c-1ec1252cf560\contoso\.AzState\Microsoft.Management-managementGroups_contoso.parameters.json'
+    New-AzOpsStateDeployment -filename 'C:\Git\CET-NorthStar\azops\3fc1081d-6105-4e19-b60c-1ec1252cf560\mySMBtech\.AzState\Microsoft.Management-managementGroups_mySMBtech.parameters.json'
 .EXAMPLE
     # Invoke Subscription Creation
-    New-AzOpsStateDeployment -filename 'C:\Git\CET-NorthStar\azops\3fc1081d-6105-4e19-b60c-1ec1252cf560\contoso\platform\connectivity\subscription.json'
+    New-AzOpsStateDeployment -filename 'C:\Git\CET-NorthStar\azops\3fc1081d-6105-4e19-b60c-1ec1252cf560\mySMBtech\platform\connectivity\subscription.json'
 .EXAMPLE
     # Invoke provider features registration
-    New-AzOpsStateDeployment -filename 'C:\Git\CET-NorthStar\azops\3fc1081d-6105-4e19-b60c-1ec1252cf560\contoso\platform\connectivity\providerfeatures.json'
+    New-AzOpsStateDeployment -filename 'C:\Git\CET-NorthStar\azops\3fc1081d-6105-4e19-b60c-1ec1252cf560\mySMBtech\platform\connectivity\providerfeatures.json'
 .EXAMPLE
     # Invoke resource providers registration
-    New-AzOpsStateDeployment -filename 'C:\Git\CET-NorthStar\azops\3fc1081d-6105-4e19-b60c-1ec1252cf560\contoso\platform\connectivity\resourceproviders.json'
+    New-AzOpsStateDeployment -filename 'C:\Git\CET-NorthStar\azops\3fc1081d-6105-4e19-b60c-1ec1252cf560\mySMBtech\platform\connectivity\resourceproviders.json'
 .INPUTS
     Filename
 .OUTPUTS

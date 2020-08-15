@@ -4,79 +4,79 @@
   "parameters": {
     "input": {
       "value": {
-        "Name": "Tailspin",
-        "DisplayName": "Tailspin",
+        "Name": "mySMBtech",
+        "DisplayName": "mySMBtech",
         "ParentId": "/providers/Microsoft.Management/managementGroups/3fc1081d-6105-4e19-b60c-1ec1252cf560",
         "Type": "/providers/Microsoft.Management/managementGroups",
         "Children": [
           {
             "Type": "/providers/Microsoft.Management/managementGroups",
-            "Id": "/providers/Microsoft.Management/managementGroups/Tailspin-landingzones",
-            "Name": "Tailspin-landingzones",
-            "DisplayName": "Tailspin-Landing Zones",
+            "Id": "/providers/Microsoft.Management/managementGroups/mySMBtech-landingzones",
+            "Name": "mySMBtech-landingzones",
+            "DisplayName": "mySMBtech-Landing Zones",
             "Children": [
               {
                 "Type": "/providers/Microsoft.Management/managementGroups",
-                "Id": "/providers/Microsoft.Management/managementGroups/Tailspin-sap",
-                "Name": "Tailspin-sap",
-                "DisplayName": "Tailspin-sap",
+                "Id": "/providers/Microsoft.Management/managementGroups/mySMBtech-sap",
+                "Name": "mySMBtech-sap",
+                "DisplayName": "mySMBtech-sap",
                 "Children": null
               },
               {
                 "Type": "/providers/Microsoft.Management/managementGroups",
-                "Id": "/providers/Microsoft.Management/managementGroups/Tailspin-online",
-                "Name": "Tailspin-online",
-                "DisplayName": "Tailspin-online",
+                "Id": "/providers/Microsoft.Management/managementGroups/mySMBtech-online",
+                "Name": "mySMBtech-online",
+                "DisplayName": "mySMBtech-online",
                 "Children": null
               },
               {
                 "Type": "/providers/Microsoft.Management/managementGroups",
-                "Id": "/providers/Microsoft.Management/managementGroups/Tailspin-corp",
-                "Name": "Tailspin-corp",
-                "DisplayName": "Tailspin-corp",
+                "Id": "/providers/Microsoft.Management/managementGroups/mySMBtech-corp",
+                "Name": "mySMBtech-corp",
+                "DisplayName": "mySMBtech-corp",
                 "Children": null
               }
             ]
           },
           {
             "Type": "/providers/Microsoft.Management/managementGroups",
-            "Id": "/providers/Microsoft.Management/managementGroups/Tailspin-decomissioned",
-            "Name": "Tailspin-decomissioned",
-            "DisplayName": "Tailspin-decomissioned",
+            "Id": "/providers/Microsoft.Management/managementGroups/mySMBtech-decomissioned",
+            "Name": "mySMBtech-decomissioned",
+            "DisplayName": "mySMBtech-decomissioned",
             "Children": null
           },
           {
             "Type": "/providers/Microsoft.Management/managementGroups",
-            "Id": "/providers/Microsoft.Management/managementGroups/Tailspin-sandboxes",
-            "Name": "Tailspin-sandboxes",
-            "DisplayName": "Tailspin-sandboxes",
+            "Id": "/providers/Microsoft.Management/managementGroups/mySMBtech-sandboxes",
+            "Name": "mySMBtech-sandboxes",
+            "DisplayName": "mySMBtech-sandboxes",
             "Children": null
           },
           {
             "Type": "/providers/Microsoft.Management/managementGroups",
-            "Id": "/providers/Microsoft.Management/managementGroups/Tailspin-platform",
-            "Name": "Tailspin-platform",
-            "DisplayName": "Tailspin-platform",
+            "Id": "/providers/Microsoft.Management/managementGroups/mySMBtech-platform",
+            "Name": "mySMBtech-platform",
+            "DisplayName": "mySMBtech-platform",
             "Children": [
               {
                 "Type": "/providers/Microsoft.Management/managementGroups",
-                "Id": "/providers/Microsoft.Management/managementGroups/Tailspin-connectivity",
-                "Name": "Tailspin-connectivity",
-                "DisplayName": "Tailspin-connectivity",
+                "Id": "/providers/Microsoft.Management/managementGroups/mySMBtech-connectivity",
+                "Name": "mySMBtech-connectivity",
+                "DisplayName": "mySMBtech-connectivity",
                 "Children": null
               },
               {
                 "Type": "/providers/Microsoft.Management/managementGroups",
-                "Id": "/providers/Microsoft.Management/managementGroups/Tailspin-identity",
-                "Name": "Tailspin-identity",
-                "DisplayName": "Tailspin-identity",
+                "Id": "/providers/Microsoft.Management/managementGroups/mySMBtech-identity",
+                "Name": "mySMBtech-identity",
+                "DisplayName": "mySMBtech-identity",
                 "Children": null
               },
               {
                 "Type": "/providers/Microsoft.Management/managementGroups",
-                "Id": "/providers/Microsoft.Management/managementGroups/Tailspin-management",
-                "Name": "Tailspin-management",
-                "DisplayName": "Tailspin-management",
+                "Id": "/providers/Microsoft.Management/managementGroups/mySMBtech-management",
+                "Name": "mySMBtech-management",
+                "DisplayName": "mySMBtech-management",
                 "Children": null
               }
             ]

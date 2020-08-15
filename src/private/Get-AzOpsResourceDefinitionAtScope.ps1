@@ -18,7 +18,7 @@
     Get-AzOpsResourceDefinitionAtScope -scope /subscriptions/623625ae-cfb0-4d55-b8ab-0bab99cbf45c/resourceGroups/myresourcegroup
 .EXAMPLE
     # Discover a single resource
-    Get-AzOpsResourceDefinitionAtScope -scope /subscriptions/623625ae-cfb0-4d55-b8ab-0bab99cbf45c/resourceGroups/contoso-global-dns/providers/Microsoft.Network/privateDnsZones/privatelink.database.windows.net
+    Get-AzOpsResourceDefinitionAtScope -scope /subscriptions/623625ae-cfb0-4d55-b8ab-0bab99cbf45c/resourceGroups/mySMBtech-global-dns/providers/Microsoft.Network/privateDnsZones/privatelink.database.windows.net
 .INPUTS
     Discovery scope - supported scopes:
     - Management Groups

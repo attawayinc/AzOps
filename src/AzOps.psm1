@@ -107,7 +107,7 @@ class AzOpsScope {
                             "parameters": {
                                 "input": {
                                     "value": {
-                                        "Id": "/providers/Microsoft.Management/managementGroups/contoso"
+                                        "Id": "/providers/Microsoft.Management/managementGroups/mySMBtech"
                                     }
                                 }
                             }

@@ -5,7 +5,7 @@
     This cmdlets discovers all custom Role Definition at the provided scope (Management Groups, subscriptions or resource groups)
 .EXAMPLE
     # Discover all custom policy definitions deployed at Management Group scope
-    Get-AzOpsRoleDefinitionAtScope -scope (New-AzOpsScope -scope /providers/Microsoft.Management/managementGroups/contoso)
+    Get-AzOpsRoleDefinitionAtScope -scope (New-AzOpsScope -scope /providers/Microsoft.Management/managementGroups/mySMBtech)
 .INPUTS
     AzOpsScope
 .OUTPUTS

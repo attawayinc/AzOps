@@ -5,7 +5,7 @@
     Recursively build/change Management Group hierarchy in file system from provided scope.
 .EXAMPLE
     # Discover Management Group hierarchy from scope
-    Save-AzOpsManagementGroupChildren -scope (New-AzOpsScope -scope /providers/Microsoft.Management/managementGroups/contoso)
+    Save-AzOpsManagementGroupChildren -scope (New-AzOpsScope -scope /providers/Microsoft.Management/managementGroups/mySMBtech)
 .INPUTS
     AzOpsScope
 .OUTPUTS

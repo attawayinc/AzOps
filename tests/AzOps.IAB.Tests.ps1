@@ -55,16 +55,16 @@ Describe "Tenant E2E Deployment (Integration Test)" -Tag "integration", "e2e", "
         } | Out-Host
         $AzOpsReferenceFolder = (Join-Path $pwd -ChildPath 'Enterprise-Scale/azopsreference')
         Write-AzOpsLog -Level Information -Topic "AzOps.IAB.Tests" -Message "AzOpsReferenceFolder Path is: $AzOpsReferenceFolder"
-        $ContosoAzState = '3fc1081d-6105-4e19-b60c-1ec1252cf560 (3fc1081d-6105-4e19-b60c-1ec1252cf560)/contoso (contoso)/.AzState'
-        Write-AzOpsLog -Level Information -Topic "AzOps.IAB.Tests" -Message "ContosoAzState Path is: $ContosoAzState"
+        $mySMBtechAzState = '3fc1081d-6105-4e19-b60c-1ec1252cf560 (3fc1081d-6105-4e19-b60c-1ec1252cf560)/mySMBtech (mySMBtech)/.AzState'
+        Write-AzOpsLog -Level Information -Topic "AzOps.IAB.Tests" -Message "mySMBtechAzState Path is: $mySMBtechAzState"
 
-        # Task: Check if 'Tailspin' Management Group exists
-        Write-AzOpsLog -Level Information -Topic "AzOps.IAB.Tests" -Message "Removing Tailspin Management Group"
-        if (Get-AzManagementGroup -GroupName 'Tailspin' -ErrorAction SilentlyContinue) {
+        # Task: Check if 'mySMBtech' Management Group exists
+        Write-AzOpsLog -Level Information -Topic "AzOps.IAB.Tests" -Message "Removing mySMBtech Management Group"
+        if (Get-AzManagementGroup -GroupName 'mySMBtech' -ErrorAction SilentlyContinue) {
             Write-AzOpsLog -Level Information -Topic "AzOps.IAB.Tests" -Message "Running Remove-AzOpsManagementGroup"
-            Remove-AzOpsManagementGroup -GroupName  'Tailspin'
+            Remove-AzOpsManagementGroup -GroupName  'mySMBtech'
         }
-        Write-AzOpsLog -Level Information -Topic "AzOps.IAB.Tests" -Message "Tailspin Management Group hierarchy removed"
+        Write-AzOpsLog -Level Information -Topic "AzOps.IAB.Tests" -Message "mySMBtech Management Group hierarchy removed"
         #endregion
 
         # Task: Initialize azops/
@@ -135,17 +135,17 @@ Describe "Tenant E2E Deployment (Integration Test)" -Tag "integration", "e2e", "
         It "Passes ProvisioningState 30-create-policydefinition-at-managementgroup" {
             (Get-AzTenantDeployment -Name "30-create-policydefinition-at-managementgroup").ProvisioningState | Should -Match "Succeeded"
         }
-        It "Passes Discovery of Tailspin Management Group" {
-            (Get-ChildItem -Directory -Recurse -Path $env:AZOPS_STATE).Name | Should -Contain 'Tailspin (Tailspin)'
+        It "Passes Discovery of mySMBtech Management Group" {
+            (Get-ChildItem -Directory -Recurse -Path $env:AZOPS_STATE).Name | Should -Contain 'mySMBtech (mySMBtech)'
         }
 
         It "Passes Policy Definition Test" {
-            $TailspinAzOpsState = ((Get-ChildItem -Recurse -Directory -path $env:AZOPS_STATE) | Where-Object { $_.Name -eq 'Tailspin (Tailspin)' }).FullName
-            $AzOpsReferencePolicyCount = (Get-ChildItem "$AzOpsReferenceFolder/$ContosoAzState/Microsoft.Authorization_policyDefinitions*.json").count
-            foreach ($policyDefinition in (Get-ChildItem "$AzOpsReferenceFolder/$ContosoAzState/Microsoft.Authorization_policyDefinitions*.json")) {
-                Copy-Item $policyDefinition $TailspinAzOpsState -Force
+            $mySMBtechAzOpsState = ((Get-ChildItem -Recurse -Directory -path $env:AZOPS_STATE) | Where-Object { $_.Name -eq 'mySMBtech (mySMBtech)' }).FullName
+            $AzOpsReferencePolicyCount = (Get-ChildItem "$AzOpsReferenceFolder/$mySMBtechAzState/Microsoft.Authorization_policyDefinitions*.json").count
+            foreach ($policyDefinition in (Get-ChildItem "$AzOpsReferenceFolder/$mySMBtechAzState/Microsoft.Authorization_policyDefinitions*.json")) {
+                Copy-Item $policyDefinition $mySMBtechAzOpsState -Force
             }
-            foreach ($policyDefinition in (Get-ChildItem "$TailspinAzOpsState/Microsoft.Authorization_policyDefinitions*.json")) {
+            foreach ($policyDefinition in (Get-ChildItem "$mySMBtechAzOpsState/Microsoft.Authorization_policyDefinitions*.json")) {
                 # Write-AzOpsLog -Level Information -Topic "AzOps.IAB.Tests" -Message "Deploying Policy Definition: $policyDefinition"
                 $scope = New-AzOpsScope -path $policyDefinition.FullName
                 $deploymentName = (Get-Item $policyDefinition).BaseName.replace('.parameters', '').Replace(' ', '_')
@@ -161,14 +161,14 @@ Describe "Tenant E2E Deployment (Integration Test)" -Tag "integration", "e2e", "
             $timeout = New-TimeSpan -Minutes 5
             $stopwatch = [diagnostics.stopwatch]::StartNew()
 
-            $tailspinJsonCount = 0
+            $mySMBtechJsonCount = 0
             while ($stopwatch.elapsed -lt $timeout) {
 
-                # Comment: Refresh Policy at Tailspin scope
-                Get-AzOpsResourceDefinitionAtScope -scope (New-AzOpsScope -path $TailspinAzOpsState)
-                $tailspinJson = Get-Content -path (New-AzOpsScope -path $TailspinAzOpsState).statepath | ConvertFrom-Json
-                $tailspinJsonCount = $tailspinJson.parameters.input.value.properties.policyDefinitions.Count
-                if ($tailspinJsonCount -lt $AzOpsReferencePolicyCount) {
+                # Comment: Refresh Policy at mySMBtech scope
+                Get-AzOpsResourceDefinitionAtScope -scope (New-AzOpsScope -path $mySMBtechAzOpsState)
+                $mySMBtechJson = Get-Content -path (New-AzOpsScope -path $mySMBtechAzOpsState).statepath | ConvertFrom-Json
+                $mySMBtechJsonCount = $mySMBtechJson.parameters.input.value.properties.policyDefinitions.Count
+                if ($mySMBtechJsonCount -lt $AzOpsReferencePolicyCount) {
                     Start-Sleep -Seconds 30
                 }
                 else {
@@ -176,20 +176,20 @@ Describe "Tenant E2E Deployment (Integration Test)" -Tag "integration", "e2e", "
                 }
             }
 
-            $tailspinJsonCount | Should -Be $AzOpsReferencePolicyCount
+            $mySMBtechJsonCount | Should -Be $AzOpsReferencePolicyCount
         }
 
         It "Passes PolicySet Definition Test" {
-            $TailspinAzOpsState = (Get-ChildItem -Recurse -Directory -path $env:AZOPS_STATE | Where-Object { $_.Name -eq 'Tailspin (Tailspin)' }).FullName
-            $AzOpsReferencePolicySetCount = (Get-ChildItem "$AzOpsReferenceFolder/$ContosoAzState/Microsoft.Authorization_policySetDefinitions*.json").count
-            foreach ($policySetDefinition in (Get-ChildItem "$AzOpsReferenceFolder/$ContosoAzState/Microsoft.Authorization_policySetDefinitions*.json")) {
-                Copy-Item $policySetDefinition $TailspinAzOpsState -Force
+            $mySMBtechAzOpsState = (Get-ChildItem -Recurse -Directory -path $env:AZOPS_STATE | Where-Object { $_.Name -eq 'mySMBtech (mySMBtech)' }).FullName
+            $AzOpsReferencePolicySetCount = (Get-ChildItem "$AzOpsReferenceFolder/$mySMBtechAzState/Microsoft.Authorization_policySetDefinitions*.json").count
+            foreach ($policySetDefinition in (Get-ChildItem "$AzOpsReferenceFolder/$mySMBtechAzState/Microsoft.Authorization_policySetDefinitions*.json")) {
+                Copy-Item $policySetDefinition $mySMBtechAzOpsState -Force
             }
-            foreach ($policySetDefinition in (Get-ChildItem "$TailspinAzOpsState/Microsoft.Authorization_policySetDefinitions*.json")) {
+            foreach ($policySetDefinition in (Get-ChildItem "$mySMBtechAzOpsState/Microsoft.Authorization_policySetDefinitions*.json")) {
                 # Write-AzOpsLog -Level Verbose -Topic "AzOps.IAB.Tests" -Message "Deploying Policy Definition: $policySetDefinition"
 
-                # Changing the Scope to match Tailspin
-                (Get-Content -path $policySetDefinition -Raw) -replace '/providers/Microsoft.Management/managementGroups/contoso/', '/providers/Microsoft.Management/managementGroups/Tailspin/' | Set-Content -Path $policySetDefinition
+                # Changing the Scope to match mySMBtech
+                (Get-Content -path $policySetDefinition -Raw) -replace '/providers/Microsoft.Management/managementGroups/mySMBtech/', '/providers/Microsoft.Management/managementGroups/mySMBtech/' | Set-Content -Path $policySetDefinition
                 $scope = New-AzOpsScope -path $policySetDefinition.FullName
 
                 $deploymentName = (Get-Item $policySetDefinition).BaseName.replace('.parameters', '').Replace(' ', '_')
@@ -208,29 +208,29 @@ Describe "Tenant E2E Deployment (Integration Test)" -Tag "integration", "e2e", "
             # There is an unexplained delay between successful deployment -> and GET.
             $timeout = New-TimeSpan -Minutes 5
             $sw = [diagnostics.stopwatch]::StartNew()
-            $tailspinJsonSetCount = 0
+            $mySMBtechJsonSetCount = 0
             while ($sw.elapsed -lt $timeout) {
 
-                # Refresh Policy at Tailspin scope
-                Get-AzOpsResourceDefinitionAtScope -scope (New-AzOpsScope -path $TailspinAzOpsState)
-                $tailspinJson = Get-Content -path (New-AzOpsScope -path $TailspinAzOpsState).statepath | ConvertFrom-Json
-                $tailspinJsonSetCount = $tailspinJson.parameters.input.value.properties.policySetDefinitions.Count
-                if ($tailspinJsonSetCount -lt $AzOpsReferencePolicySetCount) {
+                # Refresh Policy at mySMBtech scope
+                Get-AzOpsResourceDefinitionAtScope -scope (New-AzOpsScope -path $mySMBtechAzOpsState)
+                $mySMBtechJson = Get-Content -path (New-AzOpsScope -path $mySMBtechAzOpsState).statepath | ConvertFrom-Json
+                $mySMBtechJsonSetCount = $mySMBtechJson.parameters.input.value.properties.policySetDefinitions.Count
+                if ($mySMBtechJsonSetCount -lt $AzOpsReferencePolicySetCount) {
                     start-sleep -seconds 30
                 }
                 else {
                     break
                 }
             }
-            $tailspinJsonSetCount | Should -Be $AzOpsReferencePolicySetCount
+            $mySMBtechJsonSetCount | Should -Be $AzOpsReferencePolicySetCount
         }
     }
 
     AfterAll {
-        # Cleaning up Tailspin Management Group
-        if (Get-AzManagementGroup -GroupName 'Tailspin' -ErrorAction SilentlyContinue) {
-            Write-AzOpsLog -Level Verbose -Topic "AzOps.IAB.Tests" -Message "Cleaning up Tailspin Management Group"
-            Remove-AzOpsManagementGroup -groupName  'Tailspin'
+        # Cleaning up mySMBtech Management Group
+        if (Get-AzManagementGroup -GroupName 'mySMBtech' -ErrorAction SilentlyContinue) {
+            Write-AzOpsLog -Level Verbose -Topic "AzOps.IAB.Tests" -Message "Cleaning up mySMBtech Management Group"
+            Remove-AzOpsManagementGroup -groupName  'mySMBtech'
         }
     }
 }
