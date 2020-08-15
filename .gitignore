@@ -21,3 +21,4 @@ debug.ps1
 
 #AzOps
 azops/*
+service-principal*
